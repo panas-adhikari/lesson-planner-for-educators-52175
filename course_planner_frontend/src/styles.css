@@ -1,0 +1,188 @@
+:root {
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #64748b;
+  --border: #e5e7eb;
+
+  --primary: #3b82f6;
+  --success: #06b6d4;
+  --danger: #ef4444;
+
+  --shadow: 0 10px 25px rgba(17, 24, 39, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.appShell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 18px 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(6,182,212,0.10));
+  border: 1px solid rgba(59,130,246,0.15);
+  margin-bottom: 14px;
+}
+.brandMark {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  box-shadow: var(--shadow);
+}
+.brandTitle { font-weight: 800; letter-spacing: -0.02em; }
+.brandSub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+.nav a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.nav a.active {
+  background: rgba(59,130,246,0.10);
+  color: var(--text);
+  border: 1px solid rgba(59,130,246,0.18);
+}
+
+.main {
+  padding: 22px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.cardHeader {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardBody { padding: 16px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+
+.kpi {
+  grid-column: span 3;
+  padding: 14px 16px;
+}
+.kpiLabel { color: var(--muted); font-weight: 700; font-size: 12px; }
+.kpiValue { font-size: 26px; font-weight: 900; margin-top: 6px; }
+
+.btn {
+  border: 1px solid rgba(59,130,246,0.25);
+  background: rgba(59,130,246,0.10);
+  color: var(--text);
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btnPrimary {
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  color: white;
+  border: none;
+}
+.btnDanger {
+  background: rgba(239,68,68,0.10);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: var(--danger);
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  outline: none;
+}
+.textarea { min-height: 90px; resize: vertical; }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.table th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.badge {
+  font-weight: 800;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.badgeSuccess { background: rgba(6,182,212,0.12); border: 1px solid rgba(6,182,212,0.25); color: #0e7490; }
+.badgePrimary { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); color: #1d4ed8; }
+.badgeMuted { background: rgba(100,116,139,0.10); border: 1px solid rgba(100,116,139,0.22); color: var(--muted); }
+
+.error {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(239,68,68,0.25);
+  background: rgba(239,68,68,0.08);
+  color: #991b1b;
+}
+
+@media (max-width: 980px) {
+  .appShell { grid-template-columns: 1fr; }
+  .sidebar { position: sticky; top: 0; z-index: 10; border-right: none; border-bottom: 1px solid var(--border); }
+  .grid { grid-template-columns: repeat(6, 1fr); }
+  .kpi { grid-column: span 3; }
+  .row { grid-template-columns: 1fr; }
+}
