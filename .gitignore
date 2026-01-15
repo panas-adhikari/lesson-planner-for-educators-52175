@@ -65,3 +65,7 @@ post_process_status.lock
 # Knowledge graph metadata - only commit the bundle
 .knowledge/
 .knowledge
+
+# Knowledge graph metadata - only commit the bundle
+.knowledge/
+.knowledge
